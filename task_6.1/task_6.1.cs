@@ -84,7 +84,7 @@ namespace task_6._1
             employeeInfo[4] = CheckAndGetHeight();
             employeeInfo[5] = CheckAndGetDateOfBirth(employeeInfo);
             Console.WriteLine("Место рождения сотрудника");
-            employeeInfo[6] = Console.ReadLine();
+            employeeInfo[6] = "город " + $"{Console.ReadLine()}";
             employeeInfo[1] = DateTime.Now.ToShortTimeString();
             return String.Join('#', employeeInfo);
         }
@@ -94,7 +94,7 @@ namespace task_6._1
         /// </summary>
         static void AddToFile()
         {
-            using (StreamWriter stream = new StreamWriter(@"employees.txt", true))
+            using (StreamWriter stream = new StreamWriter(@"Сотрудники.txt", true))
             {
                 stream.WriteLine(GetEmployeeInfo());
             }
@@ -105,9 +105,9 @@ namespace task_6._1
         /// </summary>
         static void ReadFile()
         {
-            if (File.Exists(@"employees.txt"))
+            if (File.Exists(@"Сотрудники.txt"))
             {
-                using (StreamReader stream = new StreamReader(@"employees.txt"))
+                using (StreamReader stream = new StreamReader(@"Сотрудники.txt"))
                 {
                     while (!stream.EndOfStream)
                     {
